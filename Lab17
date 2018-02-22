@@ -7,9 +7,13 @@
 7.  SELECT ContactName, country, city FROM customers WHERE country IS NOT NULL ORDER BY country, city ASC;
 8.  INSERT INTO Customers (CustomerID, CompanyName, ContactName, ContactTitle, Address, City, Region, PostalCode, Country, phone, fax)
 	VALUES ('JONEK', 'Grand Circus', 'Kassie Jones', 'Student', '1570 Woodward Ave.', 'Detroit', "MI", "48226", "USA", "313-555-1212", "313-111-5656");
-9.
+9.	UPDATE orders SET ShipRegion="EuroZone" WHERE ShipCountry="France";
 10.  DELETE FROM `order details` WHERE quantity='1';
-11.  SELECT AVG(quantity) FROM `order details`;
-	 SELECT MIN(quantity) FROM `order details`;
-	 SELECT MAX(quantity) FROM `order details`;
-12.  
+11.  SELECT AVG(quantity), MIN(quantity), MAX(quantity) FROM `order details`
+12.  SELECT OrderID, AVG(quantity), MIN(quantity), MAX(quantity) FROM `order details` GROUP BY OrderID;
+13.  SELECT * FROM customers INNER JOIN orders ON orders.CustomerID = customers.CustomerID WHERE orders.orderID=10290;
+14.  SELECT * FROM customers INNER JOIN orders ON orders.CustomerID = customers.CustomerID
+	 SELECT * FROM customers LEFT JOIN orders ON orders.CustomerID = customers.CustomerID
+	 SELECT * FROM customers RIGHT JOIN orders ON orders.CustomerID = customers.CustomerID
+15.  SELECT firstName FROM employees WHERE ReportsTo IS NULL;
+16.  SELECT firstName FROM employees WHERE ReportsTo="2";
